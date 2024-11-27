@@ -7,21 +7,19 @@ library(lubridate)
 library(xts)
 library(reshape2)
 
-# Input data files are available in the "../input/" directory.
-# For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
 list.files("../input")
 
 air <-read.csv("data.csv")
 glimpse(air)
 
-# Any results you write to the current directory are saved as output.
+
 
 air$date <-as.Date(air$date,'%Y-%m-%d')
 summary(air)
 table(air$type)
 
-#some Data cleanup
+#Data cleanup
 air$type[air$type=="Sensitive Areas"] <-"Sensitive Area"
 air$type[air$type %in% c("Industrial","Industrial Areas")] <-"Industrial Area"
 air$type[air$type %in% c("Residential")] <-"Residential and others"
@@ -74,15 +72,8 @@ ggplot(by_state_wise,aes(x=state,y=Avg_Spm,fill=Avg_Spm)) +
 
 colnames(by_state_wise)
 
-##Key takeaways
-#1.Delhi ranked highest in RSPM(Respirable Suspended Particulate Matter) and SPM(Suspended Particulate Matter), followed by Uttar Pradesh.
-#2.Meghalaya and Mizoram are least polluted w.r.t RSPM and SPM.
-#3.Uttarakhand() and Uttaranchal has highest Sulphur Content
-#4.WestBengal and Delhi ranks 1st and 2nd in Nitrous Oxide Content
 
-
-
-#Lets investigate more on Delhi Trend w.r.t pollution
+#Delhi Trend w.r.t pollution
 air$date <-as.POSIXct(air$date)
 air$year <-year(air$date)
 Delhi <-air%>%filter(state=="Delhi")%>%group_by(year,type)%>%summarise(Avg_So2=mean(so2,na.rm=TRUE),
@@ -162,8 +153,6 @@ State_Year_Wise.long %>%
   scale_fill_gradient(low="white",high="steelblue") +
   theme(legend.position = "right") +
   labs(title="Heat Map for Average RSPM Content")
-
-#Delhi leads the Average RSPM(Respirable Suspended Particulate Matter) ,along with UP and Punjab espcially after 2010
 
 
 State_Year_Wise.long %>%
