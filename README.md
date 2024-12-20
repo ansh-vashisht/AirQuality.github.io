@@ -1,4 +1,3 @@
-
 # Air Pollution Analysis with R 🌍
 
 ## Overview  
@@ -13,7 +12,7 @@ This project analyzes air pollution data in India 🇮🇳 using R 🧑‍💻. 
 
 ---
 
-### Setup and Requirements 🛠️  
+### <a id="setup-and-requirements"></a>Setup and Requirements 🛠️  
 
 #### R Libraries 📦  
 Ensure you have the following libraries installed before running the script:  
@@ -39,7 +38,7 @@ Place the file in your working directory. 📂
 
 ---
 
-### Data Preprocessing 🔧  
+### <a id="data-preprocessing"></a>Data Preprocessing 🔧  
 1. **Date Formatting** 🗓️: The `date` column is converted to `Date` and `POSIXct` formats.  
 2. **Category Cleanup** 🧹: `type` categories are consolidated into broader groups:  
    - "Sensitive Areas" → "Sensitive Area"  
@@ -48,7 +47,7 @@ Place the file in your working directory. 📂
 
 ---
 
-### Visualization and Analysis 📊  
+### <a id="visualization-and-analysis"></a>Visualization and Analysis 📊  
 
 #### State-wise Averages 📉  
 Grouped by state, average levels of SO2, NO2, RSPM, SPM, and EMIS are calculated and visualized.  
@@ -63,7 +62,7 @@ Longitudinal data for all states is analyzed and visualized:
 
 ---
 
-### Key Visualizations 🎨  
+### <a id="key-visualizations"></a>Key Visualizations 🎨  
 
 1. **State-wise Bar Charts 📊**:  
    - Average SO2, NO2, RSPM, SPM, and EMIS content.  
@@ -78,7 +77,7 @@ Longitudinal data for all states is analyzed and visualized:
 
 ---
 
-### Conclusion 📍  
+### <a id="conclusion"></a>Conclusion 📍  
 
 This project provides a comprehensive overview of air pollution trends in India, enabling stakeholders to identify problem areas and prioritize actions. The visualizations are key to communicating data insights effectively.  
 
